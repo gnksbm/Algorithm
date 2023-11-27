@@ -6,9 +6,9 @@
 //
 
 private func solution() {
-    let n = readLine()!
+    _ = readLine()!
     let myCards = readLine()!.split(separator: " ").map { String($0) }
-    let m = readLine()!
+    _ = readLine()!
     let suggestCards = readLine()!.split(separator: " ").map { String($0) }
     var result = [String: Int]()
 
@@ -19,4 +19,14 @@ private func solution() {
     print(
         suggestCards.map { String(result[$0] ?? 0) }.joined(separator: " ")
     )
+}
+
+private func solution2() {
+    var result = [String: Int]()
+    _ = readLine()
+    readLine()!.split(separator: " ").forEach {
+        result[String($0), default: 0] += 1
+    }
+    _ = readLine()
+    print(readLine()!.split(separator: " ").map { String(result[String($0)] ?? 0) }.joined(separator: " "))
 }
