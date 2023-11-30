@@ -66,3 +66,23 @@ private func solution2() {
     }
     print(slice)
 }
+
+private func solution3() {
+    let input = readLine()!.map { $0 }
+    var pipe = 0
+    var slice = 0
+    for index in 0..<input.count {
+        if input[index] == "(" { // add Pipe
+            pipe += 1
+        } else if input[index] == ")" {
+            if input[index - 1] == "(", pipe > 0 { // slice
+                pipe -= 1
+                slice += pipe
+            } else if input[index - 1] == ")" { // top pipe remove
+                pipe -= 1
+                slice += 1
+            }
+        }
+    }
+    print(slice)
+}
